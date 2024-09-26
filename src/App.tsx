@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+const numRows = 25;
+const numCols = 35;
+
+const randomTiles = () => {
+  const rows = [];
+  for (let i = 0; i < numRows; i++) {
+    rows.push(Array.from(Array(numCols), () => (Math.random() > 0.7 ? 1 : 0)));
+  }
+  return rows;
+};
+
+const App = () => {
+  const [grid, setGrid] = useState(() => {
+    return randomTiles();
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: `repeat(${numCols}, 20px)`,
+        width: "fit-content",
+        margin: "0 auto",
+      }}
+    >
+      {grid.map((rows, i) =>
+        rows.map((col, k) => (
+          <div
+            style={{
+              width: 20,
+              height: 20,
+              backgroundColor: grid[i][k] ? "#F68E5F" : undefined,
+              border: "1px solid #595959",
+            }}
+          />
+        ))
+      )}
     </div>
   );
-}
-
-export default App;
+};
