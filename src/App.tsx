@@ -1,7 +1,7 @@
 import "bulma/css/bulma.min.css";
 import { FC, useCallback, useRef, useState } from "react";
-import useInterval from "./hooks/useInterval";
 import { Globe, Pause, Play, XCircle } from "react-feather";
+import { useInterval } from "usehooks-ts";
 
 const numRows = 25;
 const numCols = 35;
