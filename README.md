@@ -14,6 +14,4 @@ Click any square in the grid to change its status even while game is running!
 
 ![Game](public/start.gif)
 
-### Deployment
-
-[Click Here!](https://jaredthacker.github.io/game-of-life/)
+[Click Here To Play!](https://jaredthacker.github.io/game-of-life/)
